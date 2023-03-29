@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -36,6 +36,7 @@ func TestConfig_Config_Remove(t *testing.T) {
 					"api.token.refresh",
 					"api.version",
 					"log.level",
+					"no-git",
 					"secret.engine",
 					"secret.type",
 					"compiler.GitHubToken",

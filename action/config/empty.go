@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -79,6 +79,11 @@ func (c *ConfigFile) Empty() bool {
 
 	// check if the repo is set
 	if len(c.Repo) > 0 {
+		return false
+	}
+
+	// check if the no-git is set
+	if len(c.NoGit) > 0 {
 		return false
 	}
 

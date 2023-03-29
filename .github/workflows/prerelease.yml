@@ -18,10 +18,10 @@ jobs:
   prerelease:
     runs-on: ubuntu-latest
     container:
-      image: golang:1.16
+      image: golang:1.17
     steps:
     - name: clone
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         # ensures we fetch tag history for the repository
         fetch-depth: 0
@@ -39,7 +39,7 @@ jobs:
           args: 'release/vela*'
 
     - name: publish
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: target/vela-cli
         cache: true

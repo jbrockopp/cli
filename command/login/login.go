@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -164,6 +164,7 @@ func runLogin(c *cli.Context) error {
 		RefreshToken: c.String(internal.FlagAPIRefreshToken),
 		Version:      c.String(internal.FlagAPIVersion),
 		LogLevel:     c.String(internal.FlagLogLevel),
+		NoGit:        c.String(internal.FlagNoGit),
 		Output:       c.String(internal.FlagOutput),
 		Org:          c.String(internal.FlagOrg),
 		Repo:         c.String(internal.FlagRepo),

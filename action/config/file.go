@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -11,6 +11,7 @@ package config
 type ConfigFile struct {
 	API      *API      `yaml:"api,omitempty"`
 	Log      *Log      `yaml:"log,omitempty"`
+	NoGit    string    `yaml:"no-git,omitempty"`
 	Secret   *Secret   `yaml:"secret,omitempty"`
 	Compiler *Compiler `yaml:"compiler,omitempty"`
 	Output   string    `yaml:"output,omitempty"`

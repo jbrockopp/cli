@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -90,6 +90,12 @@ func (c *Config) Update() error {
 		if strings.EqualFold(key, internal.FlagLogLevel) {
 			// set the log level field to value provided
 			config.Log.Level = value
+		}
+
+		// check if no git flag should be modified
+		if strings.EqualFold(key, internal.FlagNoGit) {
+			// set the no git field to value provided
+			config.NoGit = value
 		}
 
 		// check if secret engine flag should be modified

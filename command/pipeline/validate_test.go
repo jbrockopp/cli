@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -10,7 +10,7 @@ import (
 	"testing"
 
 	"github.com/go-vela/cli/test"
-	"github.com/go-vela/mock/server"
+	"github.com/go-vela/server/mock/server"
 	"github.com/urfave/cli/v2"
 )
 

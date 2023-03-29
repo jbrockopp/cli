@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -36,6 +36,7 @@ func TestConfig_Config_Update(t *testing.T) {
 					"api.token.refresh":    "superSecretRefreshToken",
 					"api.version":          "1",
 					"log.level":            "info",
+					"no-git":               "true",
 					"secret.engine":        "native",
 					"secret.type":          "repo",
 					"compiler.GitHubToken": "somePATToken",

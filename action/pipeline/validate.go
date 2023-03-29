@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -15,7 +15,7 @@ import (
 	"github.com/go-vela/types/library"
 	"github.com/go-vela/types/yaml"
 
-	"github.com/go-vela/compiler/compiler"
+	"github.com/go-vela/server/compiler"
 
 	"github.com/sirupsen/logrus"
 )
@@ -83,11 +83,6 @@ func (c *Config) ValidateLocal(client compiler.Engine) error {
 	}
 
 	// check if full path to pipeline file exists
-	_, err = os.Stat(path)
-	if err != nil {
-		return fmt.Errorf("unable to find pipeline %s: %v", path, err)
-	}
-
 	path, err = validateFile(path)
 	if err != nil {
 		return err
@@ -148,14 +143,14 @@ func (c *Config) ValidateLocal(client compiler.Engine) error {
 
 		if len(p.Stages) > 0 {
 			// inject the templates into the stages
-			p.Stages, p.Secrets, p.Services, err = client.ExpandStages(p, templates)
+			p.Stages, p.Secrets, p.Services, _, err = client.ExpandStages(p, templates)
 			if err != nil {
 				return err
 			}
 		}
 
 		// inject the templates into the steps
-		p.Steps, p.Secrets, p.Services, err = client.ExpandSteps(p, templates)
+		p.Steps, p.Secrets, p.Services, _, err = client.ExpandSteps(p, templates)
 		if err != nil {
 			return err
 		}

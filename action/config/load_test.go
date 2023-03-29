@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -25,6 +25,7 @@ func TestConfig_Config_Load(t *testing.T) {
 		&cli.StringFlag{Name: "api.token.refresh"},
 		&cli.StringFlag{Name: "api.version"},
 		&cli.StringFlag{Name: "log.level"},
+		&cli.StringFlag{Name: "no-git"},
 		&cli.StringFlag{Name: "output"},
 		&cli.StringFlag{Name: "org"},
 		&cli.StringFlag{Name: "repo"},
@@ -47,6 +48,7 @@ func TestConfig_Config_Load(t *testing.T) {
 	fullSet.String("api.token.refresh", "superSecretRefreshToken", "doc")
 	fullSet.String("api.version", "1", "doc")
 	fullSet.String("log.level", "info", "doc")
+	fullSet.String("no-git", "true", "doc")
 	fullSet.String("output", "json", "doc")
 	fullSet.String("org", "github", "doc")
 	fullSet.String("repo", "octocat", "doc")

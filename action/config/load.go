@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -169,6 +169,17 @@ func (c *Config) Load(ctx *cli.Context) error {
 			len(config.Log.Level) > 0 {
 			// set the log level field to value from config
 			err = ctx.Set(internal.FlagLogLevel, config.Log.Level)
+			if err != nil {
+				return err
+			}
+		}
+
+		// check if the git sync flag is available
+		// and if it is set in the context
+		if strings.Contains(f, internal.FlagNoGit) &&
+			!ctx.IsSet(internal.FlagNoGit) &&
+			len(config.NoGit) > 0 {
+			err = ctx.Set(internal.FlagNoGit, config.NoGit)
 			if err != nil {
 				return err
 			}

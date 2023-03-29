@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -86,6 +86,12 @@ DOCUMENTATION:
 func view(c *cli.Context) error {
 	// load variables from the config file
 	err := action.Load(c)
+	if err != nil {
+		return err
+	}
+
+	// grab first command line argument, if it exists, and set it as resource
+	err = internal.ProcessArgs(c, internal.FlagService, "int")
 	if err != nil {
 		return err
 	}

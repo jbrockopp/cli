@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -10,7 +10,7 @@ import (
 	"github.com/go-vela/cli/action"
 	"github.com/go-vela/cli/action/pipeline"
 	"github.com/go-vela/cli/internal"
-	"github.com/go-vela/compiler/compiler/native"
+	"github.com/go-vela/server/compiler/native"
 	"github.com/go-vela/types/constants"
 
 	"github.com/urfave/cli/v2"
@@ -178,7 +178,7 @@ func exec(c *cli.Context) error {
 
 	// create a compiler client
 	//
-	// https://godoc.org/github.com/go-vela/compiler/compiler/native#New
+	// https://godoc.org/github.com/go-vela/server/compiler/native#New
 	client, err := native.New(c)
 	if err != nil {
 		return err

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -19,6 +19,7 @@ func TestConfig_Remove(t *testing.T) {
 	set.Bool("api.token", true, "doc")
 	set.Bool("api.version", true, "doc")
 	set.Bool("log.level", true, "doc")
+	set.Bool("no-git", true, "doc")
 	set.Bool("output", true, "doc")
 	set.Bool("org", true, "doc")
 	set.Bool("repo", true, "doc")

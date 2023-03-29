@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -29,6 +29,7 @@ func TestConfig_ConfigFile_Empty(t *testing.T) {
 				Log: &Log{
 					Level: "info",
 				},
+				NoGit: "true",
 				Secret: &Secret{
 					Engine: "native",
 					Type:   "repo",
@@ -61,6 +62,12 @@ func TestConfig_ConfigFile_Empty(t *testing.T) {
 				Log: &Log{
 					Level: "info",
 				},
+			},
+		},
+		{
+			want: false,
+			config: &ConfigFile{
+				NoGit: "true",
 			},
 		},
 		{

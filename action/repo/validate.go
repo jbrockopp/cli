@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -21,9 +21,12 @@ func (c *Config) Validate() error {
 			return fmt.Errorf("no repo org provided")
 		}
 
-		// check if repository name is set
-		if len(c.Name) == 0 {
-			return fmt.Errorf("no repo name provided")
+		// check if repository action is not syncAll
+		if c.Action != "syncAll" {
+			// check if repository name is set
+			if len(c.Name) == 0 {
+				return fmt.Errorf("no repo name provided")
+			}
 		}
 	}
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -19,6 +19,7 @@ func TestConfig_Update(t *testing.T) {
 	set.String("api.token", "superSecretToken", "doc")
 	set.String("api.version", "1", "doc")
 	set.String("log.level", "info", "doc")
+	set.String("no-git", "true", "doc")
 	set.String("output", "json", "doc")
 	set.String("org", "github", "doc")
 	set.String("repo", "octocat", "doc")

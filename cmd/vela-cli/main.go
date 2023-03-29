@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -28,7 +28,7 @@ func main() {
 	app.Name = "vela"
 	app.HelpName = "vela"
 	app.Usage = "CLI for interacting with Vela and managing resources"
-	app.Copyright = "Copyright (c) 2021 Target Brands, Inc. All rights reserved."
+	app.Copyright = "Copyright (c) 2022 Target Brands, Inc. All rights reserved."
 	app.Authors = []*cli.Author{
 		{
 			Name:  "Vela Admins",
@@ -60,6 +60,7 @@ func main() {
 		removeCmds,
 		repairCmds,
 		restartCmds,
+		syncCmds,
 		updateCmds,
 		validateCmds,
 		viewCmds,
@@ -121,6 +122,16 @@ func main() {
 			Aliases: []string{"l"},
 			Usage:   "set the level of logging - options: (trace|debug|info|warn|error|fatal|panic)",
 			Value:   "info",
+		},
+
+		// No Git Flags
+
+		&cli.StringFlag{
+			EnvVars: []string{"VELA_NO_GIT", "CONFIG_NO_GIT", "NO_GIT"},
+			Name:    internal.FlagNoGit,
+			Aliases: []string{"ng"},
+			Usage:   "set the status of syncing git repo and org with .git/ directory",
+			Value:   "false",
 		},
 	}
 

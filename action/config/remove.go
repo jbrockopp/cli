@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -100,6 +100,12 @@ func (c *Config) Remove() error {
 		if strings.EqualFold(flag, internal.FlagLogLevel) {
 			// set the log level field to empty in config
 			config.Log.Level = ""
+		}
+
+		// check if no git flag should be removed
+		if strings.EqualFold(flag, internal.FlagNoGit) {
+			// set the no git field to empty in config
+			config.NoGit = ""
 		}
 
 		// check if secret engine flag should be removed

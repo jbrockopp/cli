@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -69,6 +69,13 @@ const (
 	// FlagLogLevel defines the key for the
 	// flag when setting the log level.
 	FlagLogLevel = "log.level"
+)
+
+// no git flag keys.
+const (
+	// FlagNoGit defines the key for the
+	// flag when setting the no-git status.
+	FlagNoGit = "no-git"
 )
 
 // pagination flag keys.
@@ -155,6 +162,12 @@ const (
 
 	// ActionRestart defines the action for restarting a resource.
 	ActionRestart = "restart"
+
+	// ActionSync defines the action for syncing a resource with SCM.
+	ActionSync = "sync"
+
+	// ActionSyncAll defines the action for syncing all org resources with SCM.
+	ActionSyncAll = "syncAll"
 
 	// ActionUpdate defines the action for modifying a resource.
 	ActionUpdate = "update"

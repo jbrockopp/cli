@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Target Brands, Inc. All rights reserved.
+// Copyright (c) 2022 Target Brands, Inc. All rights reserved.
 //
 // Use of this source code is governed by the LICENSE file in this repository.
 
@@ -64,6 +64,16 @@ var CommandRemove = &cli.Command{
 			Name:    internal.FlagLogLevel,
 			Aliases: []string{"l"},
 			Usage:   "removes the log level from the config file",
+			Value:   "false",
+		},
+
+		// No Git Flags
+
+		&cli.StringFlag{
+			EnvVars: []string{"VELA_NO_GIT", "CONFIG_NO_GIT", "NO_GIT"},
+			Name:    internal.FlagNoGit,
+			Aliases: []string{"ng"},
+			Usage:   "removes the status of syncing git repo and org with .git/ directory",
 			Value:   "false",
 		},
 
@@ -185,6 +195,11 @@ func remove(c *cli.Context) error {
 	// check if the log level flag should be removed
 	if c.Bool(internal.FlagLogLevel) {
 		conf.RemoveFlags = append(conf.RemoveFlags, internal.FlagLogLevel)
+	}
+
+	// check if the no git flag should be removed
+	if c.Bool(internal.FlagNoGit) {
+		conf.RemoveFlags = append(conf.RemoveFlags, internal.FlagNoGit)
 	}
 
 	// check if the output flag should be removed
